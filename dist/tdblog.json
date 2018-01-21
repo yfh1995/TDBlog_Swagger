@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "\u7528\u6237\u767b\u5f55\u63a5\u53e3",
+                "description": "",
+                "operationId": "base-auth-login",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "description": "\u90ae\u7bb1",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "sequence",
+                        "description": "\u5e8f\u5217\u53f7",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "voucher",
+                        "description": "\u767b\u5f55\u51ed\u8bc1",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f",
+                        "schema": {
+                            "$ref": "#/definitions/login"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sendEmail": {
+            "post": {
+                "tags": [
+                    "Email"
+                ],
+                "summary": "\u7edf\u4e00\u90ae\u4ef6\u53d1\u9001\u63a5\u53e3",
+                "description": "",
+                "operationId": "base-email-login",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "email",
+                        "description": "\u90ae\u7bb1",
+                        "required": true,
+                        "type": "string",
+                        "format": "string"
+                    },
+                    {
+                        "name": "emailType",
+                        "description": "\u90ae\u4ef6\u7c7b\u578b",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f"
+                    }
+                }
+            }
+        },
+        "/api/tool/updateBackendConfigsCache": {
+            "post": {
+                "tags": [
+                    "Tool"
+                ],
+                "summary": "\u5f3a\u5236\u66f4\u65b0\u540e\u53f0configs\u7f13\u5b58",
+                "description": "",
+                "operationId": "base-tool-login",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "\u8bf7\u6c42\u6210\u529f"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "login": {
+            "required": [
+                "username",
+                "name",
+                "email",
+                "phone",
+                "avatar",
+                "token"
+            ],
+            "properties": {
+                "username": {
+                    "type": "string"
+                },
+                "name": {
+                    "description": "\u6635\u79f0",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "\u90ae\u7bb1",
+                    "type": "string"
+                },
+                "phone": {
+                    "description": "\u7535\u8bdd",
+                    "type": "string"
+                },
+                "avatar": {
+                    "description": "\u5934\u50cf",
+                    "type": "string"
+                },
+                "token": {
+                    "description": "\u4ee4\u724c",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
